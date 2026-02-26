@@ -17,7 +17,7 @@
 <canvas id="grafico6"></canvas>
 
 <script>
-    const datas = {{ datas|safe }};
+    const datas = {{datas}};
     
     function criarGrafico(canvasId, dados, label) {
         new Chart(document.getElementById(canvasId), {

@@ -7,7 +7,7 @@ from .serializers import ReadSensorsSerializer
 from django.contrib.auth.decorators import login_required
 from .models import ReadSensors
 from rest_framework.permissions import AllowAny
-
+import json
 
 
 @api_view(['POST'])
@@ -30,16 +30,16 @@ def dashboard(request):
 @login_required
 def grafico_sensores(request):
     leituras = ReadSensors.objects.order_by('-criado_em')[:20]
-    leituras = list(reversed(leituras))  # ordem cronológica
+    leituras = list(reversed(leituras))
 
     context = {
-        "datas": [l.criado_em.strftime("%d/%m %H:%M") for l in leituras],
-        "sensor_1": [l.sensor_1 for l in leituras],
-        "sensor_2": [l.sensor_2 for l in leituras],
-        "sensor_3": [l.sensor_3 for l in leituras],
-        "sensor_4": [l.sensor_4 for l in leituras],
-        "sensor_5": [l.sensor_5 for l in leituras],
-        "sensor_6": [l.sensor_6 for l in leituras],
+        "datas": json.dumps([l.criado_em.strftime("%d/%m %H:%M") for l in leituras]),
+        "sensor_1": json.dumps([l.sensor_1 for l in leituras]),
+        "sensor_2": json.dumps([l.sensor_2 for l in leituras]),
+        "sensor_3": json.dumps([l.sensor_3 for l in leituras]),
+        "sensor_4": json.dumps([l.sensor_4 for l in leituras]),
+        "sensor_5": json.dumps([l.sensor_5 for l in leituras]),
+        "sensor_6": json.dumps([l.sensor_6 for l in leituras]),
     }
 
     return render(request, "grafico.html", context)
