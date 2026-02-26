@@ -24,7 +24,7 @@ def receber_leitura(request):
 @login_required
 def dashboard(request):
     leituras = ReadSensors.objects.order_by('-criado_em')[:20]
-    return render(request, 'sensores/dashboard.html', {'leituras': leituras})
+        return render(request, 'sensores/dashboard.html', {'leituras': leituras})
 
 @login_required
 def grafico_sensores(request):
