@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os 
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +28,7 @@ SECRET_KEY = "django-insecure-%hk=kt_!yc=bw6g#r^3d9^$rp7ee035=y6_j8s=^93jb799icw
 DEBUG = False
 
 #ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['app.onrender.com']
+ALLOWED_HOSTS = ['https://iot-cc0r.onrender.com']
 
 # Application definition
 
@@ -50,6 +51,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = "iot.urls"
@@ -96,6 +98,7 @@ DATABASES = {
 }
 
 
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 
