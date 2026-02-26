@@ -28,7 +28,8 @@ SECRET_KEY = "django-insecure-%hk=kt_!yc=bw6g#r^3d9^$rp7ee035=y6_j8s=^93jb799icw
 DEBUG = False
 
 #ALLOWED_HOSTS = ["*"]
-ALLOWED_HOSTS = ['https://iot-cc0r.onrender.com']
+ALLOWED_HOSTS = ['iot-cc0r.onrender.com']
+
 
 # Application definition
 
