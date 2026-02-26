@@ -5,10 +5,9 @@
 </form>
 
 
-<form method="post" action="/graficos/">
-    {% csrf_token %}
-    <button type="submit">Gráficos</button>
-</form>
+<a href="{% url 'grafico_sensores' %}">
+    <button type="button">Gráficos</button>
+</a>
 
 <table border="1">
 
