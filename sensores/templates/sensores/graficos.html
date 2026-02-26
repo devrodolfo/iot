@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfico de Sensores</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<h1>Série Histórica dos Sensores</h1>
+
+<canvas id="grafico1"></canvas>
+<canvas id="grafico2"></canvas>
+<canvas id="grafico3"></canvas>
+<canvas id="grafico4"></canvas>
+<canvas id="grafico5"></canvas>
+<canvas id="grafico6"></canvas>
+
+<script>
+    const datas = {{ datas|safe }};
+    
+    function criarGrafico(canvasId, dados, label) {
+        new Chart(document.getElementById(canvasId), {
+            type: 'bar',
+            data: {
+                labels: datas,
+                datasets: [{
+                    label: label,
+                    data: dados,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true }
+                }
+            }
+        });
+    }
+
+    criarGrafico("grafico1", {{ sensor_1|safe }}, "Sensor 1");
+    criarGrafico("grafico2", {{ sensor_2|safe }}, "Sensor 2");
+    criarGrafico("grafico3", {{ sensor_3|safe }}, "Sensor 3");
+    criarGrafico("grafico4", {{ sensor_4|safe }}, "Sensor 4");
+    criarGrafico("grafico5", {{ sensor_5|safe }}, "Sensor 5");
+    criarGrafico("grafico6", {{ sensor_6|safe }}, "Sensor 6");
+</script>
+
+</body>
+</html>

@@ -26,3 +26,20 @@ def dashboard(request):
     leituras = ReadSensors.objects.order_by('-criado_em')[:20]
     return render(request, 'sensores/dashboard.html', {'leituras': leituras})
 #sensores/templates/dashboard.html
+
+@login_required
+def grafico_sensores(request):
+    leituras = ReadSensors.objects.order_by('-criado_em')[:20]
+    leituras = list(reversed(leituras))  # ordem cronológica
+
+    context = {
+        "datas": [l.criado_em.strftime("%d/%m %H:%M") for l in leituras],
+        "sensor_1": [l.sensor_1 for l in leituras],
+        "sensor_2": [l.sensor_2 for l in leituras],
+        "sensor_3": [l.sensor_3 for l in leituras],
+        "sensor_4": [l.sensor_4 for l in leituras],
+        "sensor_5": [l.sensor_5 for l in leituras],
+        "sensor_6": [l.sensor_6 for l in leituras],
+    }
+
+    return render(request, "grafico.html", context)

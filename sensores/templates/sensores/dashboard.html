@@ -3,6 +3,11 @@
     {% csrf_token %}
     <button type="submit">Logout</button>
 </form>
+
+<form method="post" action="/">
+    {% csrf_token %}
+    <button type="submit">HOME</button>
+</form>
 <table border="1">
 <tr>
     <th>ID</th><th>S1</th><th>S2</th><th>S3</th>
