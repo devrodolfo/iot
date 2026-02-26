@@ -42,4 +42,4 @@ def grafico_sensores(request):
         "sensor_6": json.dumps([l.sensor_6 for l in leituras]),
     }
 
-    return render(request, "grafico.html", context)
+    return render(request, "graficos.html", context)
