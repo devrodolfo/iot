@@ -1,18 +1,15 @@
-<h1>Ãšltimas Leituras</h1>
+<h1>Ultimas Leituras</h1>
 <form method="post" action="/logout/">
     {% csrf_token %}
     <button type="submit">Logout</button>
 </form>
 
-<form method="post" action="/">
-    {% csrf_token %}
-    <button type="submit">HOME</button>
-</form>
 
-<form method="post" action="/graficos">
+<form method="post" action="/graficos/">
     {% csrf_token %}
     <button type="submit">Gráficos</button>
 </form>
+
 <table border="1">
 
 <tr>
