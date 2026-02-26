@@ -25,4 +25,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('sensores.urls')),
     path('logout/', auth_views.LogoutView.as_view(next_page='/admin/login/'), name='logout'),
+    
 ]
