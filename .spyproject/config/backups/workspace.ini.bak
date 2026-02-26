@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['iot/settings.py', 'sensores/models.py', 'sensores/admin.py', 'sensores/serializers.py', 'sensores/views.py', 'iot/urls.py', 'sensores/urls.py', 'sensores/templates/sensores/dashboard.html', 'requirements.txt', 'build.sh', 'create_superuser.py', 'sensores/templates/sensores/graficos.html']
+recent_files = ['iot/settings.py', 'sensores/models.py', 'sensores/views.py', 'iot/urls.py', 'sensores/urls.py', 'sensores/templates/sensores/dashboard.html', 'sensores/templates/sensores/graficos.html']
 
 [main]
 version = 0.2.0
