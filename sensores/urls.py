@@ -9,5 +9,5 @@ urlpatterns = [
     path('api/leituras/', receber_leitura),
     #path('dashboard/', dashboard),
     path('logout/', auth_views.LogoutView.as_view(next_page='/admin/login/'), name='logout'),
-    path('graficos/', grafico_sensores),
+    path('graficos/', grafico_sensores,name='grafico_sensores'),
 ]
