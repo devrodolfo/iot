@@ -1,0 +1,24 @@
+<h1>Últimas Leituras</h1>
+<form method="post" action="/logout/">
+    {% csrf_token %}
+    <button type="submit">Logout</button>
+</form>
+<table border="1">
+<tr>
+    <th>S1</th><th>S2</th><th>S3</th>
+    <th>S4</th><th>S5</th><th>S6</th>
+    <th>Data</th>
+</tr>
+
+{% for l in leituras %}
+<tr>
+    <td>{{ l.sensor_1 }}</td>
+    <td>{{ l.sensor_2 }}</td>
+    <td>{{ l.sensor_3 }}</td>
+    <td>{{ l.sensor_4 }}</td>
+    <td>{{ l.sensor_5 }}</td>
+    <td>{{ l.sensor_6 }}</td>
+    <td>{{ l.criado_em }}</td>
+</tr>
+{% endfor %}
+</table>
