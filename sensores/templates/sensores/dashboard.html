@@ -5,13 +5,14 @@
 </form>
 <table border="1">
 <tr>
-    <th>S1</th><th>S2</th><th>S3</th>
+    <th>ID</th><th>S1</th><th>S2</th><th>S3</th>
     <th>S4</th><th>S5</th><th>S6</th>
     <th>Data</th>
 </tr>
 
 {% for l in leituras %}
 <tr>
+ <td>{{ l.id}}</td>
     <td>{{ l.sensor_1 }}</td>
     <td>{{ l.sensor_2 }}</td>
     <td>{{ l.sensor_3 }}</td>
