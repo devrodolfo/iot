@@ -23,12 +23,14 @@ def receber_leitura(request):
 
 @login_required
 def dashboard(request):
-    leituras = ReadSensors.objects.order_by('-criado_em')[:20]
+    nmr_leituras = 10
+    leituras = ReadSensors.objects.order_by('-criado_em')[:nmr_leituras]
     return render(request, 'sensores/dashboard.html', {'leituras': leituras})
 
 @login_required
 def grafico_sensores(request):
-    leituras = ReadSensors.objects.order_by('-criado_em')[:20]
+    nmr_leituras=10
+    leituras = ReadSensors.objects.order_by('-criado_em')[:nmr_leituras]
     leituras = list(reversed(leituras))
 
     context = {
