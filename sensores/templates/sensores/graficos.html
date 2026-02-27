@@ -4,17 +4,48 @@
     <meta charset="UTF-8">
     <title>Gráfico de Sensores</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .grid-graficos {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 1200px;
+            margin: 30px auto;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: 250px !important;
+            background: #ffffff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+    </style>
 </head>
 <body>
 
 <h1>Série Histórica dos Sensores</h1>
 
-<canvas id="grafico1"></canvas>
-<canvas id="grafico2"></canvas>
-<canvas id="grafico3"></canvas>
-<canvas id="grafico4"></canvas>
-<canvas id="grafico5"></canvas>
-<canvas id="grafico6"></canvas>
+<div class="grid-graficos">
+    <canvas id="grafico1"></canvas>
+    <canvas id="grafico2"></canvas>
+    <canvas id="grafico3"></canvas>
+    <canvas id="grafico4"></canvas>
+    <canvas id="grafico5"></canvas>
+    <canvas id="grafico6"></canvas>
+</div>
 
 <script>
     const datas = {{ datas|safe }};
@@ -32,6 +63,7 @@
             },
             options: {
                 responsive: true,
+                maintainAspectRatio: false,
                 scales: {
                     y: { beginAtZero: true }
                 }
@@ -46,5 +78,6 @@
     criarGrafico("grafico5", {{ sensor_5|safe }}, "Sensor 5");
     criarGrafico("grafico6", {{ sensor_6|safe }}, "Sensor 6");
 </script>
+
 </body>
 </html>
