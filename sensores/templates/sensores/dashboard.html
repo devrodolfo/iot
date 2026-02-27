@@ -1,15 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Últimas Leituras</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        form, a {
+            display: inline-block;
+            margin: 10px 5px;
+        }
+
+        button {
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4a90e2;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
 <h1>Ultimas Leituras</h1>
-<form method="post" action="/logout/">
-    {% csrf_token %}
-    <button type="submit">Logout</button>
-</form>
 
+<div style="text-align:center;">
+   
+    <a href="">
+        <button type="button">Home</button>
+    </a>
+    
+    <a href="/graficos/">
+        <button type="button">Gráficos</button>
+    </a>
+    
+    <form method="post" action="/logout/">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
 
+</div>
 
 <table border="1">
 
 <tr>
 </tr>
+
 <tr>
     <th>ID</th><th>S1</th><th>S2</th><th>S3</th>
     <th>S4</th><th>S5</th><th>S6</th>
@@ -18,7 +95,7 @@
 
 {% for l in leituras %}
 <tr>
- <td>{{ l.id}}</td>
+    <td>{{ l.id}}</td>
     <td>{{ l.sensor_1 }}</td>
     <td>{{ l.sensor_2 }}</td>
     <td>{{ l.sensor_3 }}</td>
@@ -28,4 +105,8 @@
     <td>{{ l.criado_em }}</td>
 </tr>
 {% endfor %}
+
 </table>
+
+</body>
+</html>
