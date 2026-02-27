@@ -47,13 +47,13 @@
 </div>
 
 <script>
-    const datas = {{ datas|safe }};
+    const ids = {{ ids|safe }};
     
     function criarGrafico(canvasId, dados, label) {
         new Chart(document.getElementById(canvasId), {
             type: 'bar',
             data: {
-                labels: datas,
+                labels: ids,
                 datasets: [{
                     label: label,
                     data: dados,

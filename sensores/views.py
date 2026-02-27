@@ -32,7 +32,7 @@ def grafico_sensores(request):
     leituras = list(reversed(leituras))
 
     context = {
-        "datas": json.dumps([l.criado_em.strftime("%d/%m %H:%M") for l in leituras]),
+        "ids": json.dumps([l.id for l in leituras]),
         "sensor_1": json.dumps([l.sensor_1 for l in leituras]),
         "sensor_2": json.dumps([l.sensor_2 for l in leituras]),
         "sensor_3": json.dumps([l.sensor_3 for l in leituras]),
