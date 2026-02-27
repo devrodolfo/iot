@@ -31,11 +31,73 @@
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
+        
+          form, a {
+              display: inline-block;
+              margin: 10px 5px;
+          }
+
+          button {
+              background-color: #4a90e2;
+              color: white;
+              border: none;
+              padding: 8px 16px;
+              border-radius: 5px;
+              cursor: pointer;
+              font-size: 14px;
+              transition: background-color 0.2s ease;
+          }
+
+          button:hover {
+              background-color: #357abd;
+          }
+
+          table {
+              width: 100%;
+              max-width: 1200px;
+              margin: 20px auto;
+              border-collapse: collapse;
+              background: #ffffff;
+              border-radius: 8px;
+              overflow: hidden;
+              box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+          }
+
+          th, td {
+              padding: 8px;
+              text-align: center;
+          }
+
+          th {
+              background-color: #4a90e2;
+              color: white;
+          }
+
+          tr:nth-child(even) {
+              background-color: #f2f2f2;
+          }
     </style>
 </head>
 <body>
 
 <h1>Série Histórica dos Sensores</h1>
+
+<div style="text-align:center;">
+   
+    <a href="">
+        <button type="button">Home</button>
+    </a>
+    
+    <a href="/graficos/">
+        <button type="button">Gráficos</button>
+    </a>
+    
+    <form method="post" action="/logout/">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+    </form>
+
+</div>
 
 <div class="grid-graficos">
     <canvas id="grafico1"></canvas>
