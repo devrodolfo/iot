@@ -113,7 +113,7 @@
     
     function criarGrafico(canvasId, dados, label) {
         new Chart(document.getElementById(canvasId), {
-            type: 'bar',
+            type: 'line',
             data: {
                 labels: ids,
                 datasets: [{
@@ -127,6 +127,12 @@
                 maintainAspectRatio: false,
                 scales: {
                     y: { beginAtZero: true }
+                }
+                plugins:{
+                title:{
+                display:true,
+                text: (ctx) => 'Point Style: ' + ctx.chart.data.datasets[0].pointStyle
+                }
                 }
             }
         });
